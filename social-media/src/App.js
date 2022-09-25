@@ -14,6 +14,7 @@ function App() {
           <Route path='/' element={ user ? <Navigate to="home"/> : <Navigate to="auth"/> }></Route>
           <Route path='/home' element={ user ? <Home/> : <Navigate to="../auth"/> }></Route>
           <Route path='/auth' element={ user ? <Navigate to="../home"/> : <Auth/> }></Route>
+          <Route path='/profile/:id' element={ user ? <Profile/>: <Navigate to="../auth"/>}></Route>
         </Routes>
     </div>
   );

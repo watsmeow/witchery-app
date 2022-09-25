@@ -6,13 +6,18 @@ import mongoose from 'mongoose';
 import path from 'path';
 import connectDB from './server/database/connection.cjs';
 import AuthRoute from './routes/AuthRoute.js';
-import UserRoute from './routes/UserRoute.js'
-import PostRoute from './routes/PostRoute.js'
+import UserRoute from './routes/UserRoute.js';
+import PostRoute from './routes/PostRoute.js';
+import UploadRoute from './routes/UploadRoute.js';
 
 // const connectDB = require('./server/database/connection.cjs')
 
 
 const app = express();
+
+//serve images to the public
+app.use(express.static('public'))
+app.use('/images', express.static('images'))
 
 dotenv.config({path: 'config.env'})
 const PORT = process.env.PORT || 3000
@@ -31,3 +36,4 @@ app.listen(PORT, () => {
 app.use('/auth', AuthRoute);
 app.use('/user', UserRoute);
 app.use('/post', PostRoute);
+app.use('/upload', UploadRoute);

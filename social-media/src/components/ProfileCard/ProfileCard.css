@@ -16,24 +16,30 @@
     justify-content: center;
 }
 
-.ProfileImages>img:nth-of-type(1){
+.ProfileImages > img {
     width: 100%;
 }
 
-.ProfileImages>img:nth-of-type(2)
-{
-    width: 6rem;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -3rem;
-    box-shadow: var(--profileShadow);
+.image-cropper {
+  width: 12rem;
+  height: 12rem;
+  position: relative;
+  top: -50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-pic {
+  max-width: 12rem;
+  position: relative;
+  top: -1.5rem;
+  box-shadow: var(--profileShadow);
 }
 
 .ProfileName{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
     gap: 10px;
 }
 

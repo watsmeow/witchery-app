@@ -1,6 +1,12 @@
 .LogoSearch{
     display: flex;
+    align-items: center;
     gap: 0.75rem;
+}
+
+.LogoSearch img{
+    max-width: 2rem;
+    max-height: 2rem;
 }
 
 .Search{
