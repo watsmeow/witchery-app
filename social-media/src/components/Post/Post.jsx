@@ -9,7 +9,6 @@ import { likePost } from "../../api/postRequest";
 
 const Post = ({data}) => {
   const {user} = useSelector((state) => state.authReducer.authData)
-
   const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length)
 
@@ -21,6 +20,7 @@ const Post = ({data}) => {
 
   return (
     <div className="Post">
+      <span>{}</span>
         <img src={
           data.image 
           ? process.env.REACT_APP_PUBLIC_FOLDER + data.image
