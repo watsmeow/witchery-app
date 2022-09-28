@@ -27,7 +27,6 @@ const InfoCard = () => {
       }
     };
     fetchProfileUser();
-    console.log(profileUser)
   }, [user]);
 
   const handleLogout = () => {
@@ -77,7 +76,7 @@ const InfoCard = () => {
       </div>
 
       <button 
-      className="button logout-button"
+      className="button-two fc-button"
       onClick={handleLogout}
       >
         Logout

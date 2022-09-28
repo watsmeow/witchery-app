@@ -14,7 +14,6 @@
 
 .PostShare>div{
     display: flex;
-    flex-direction: column;
     width: 90%;
     gap: 1rem;
 }
@@ -34,7 +33,8 @@
 
 .postOptions{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 3rem;
 }
 
 .option{

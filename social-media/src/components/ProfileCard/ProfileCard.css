@@ -6,6 +6,7 @@
     gap: 1rem;
     overflow-x: clip;
     background: var(--cardColor);
+    padding-bottom: 1rem;
 }
 
 .ProfileImages{
@@ -30,9 +31,9 @@
 }
 
 .profile-pic {
-  max-width: 12rem;
+  max-width: 20rem;
   position: relative;
-  top: -1.5rem;
+  left: -4rem;
   box-shadow: var(--profileShadow);
 }
 

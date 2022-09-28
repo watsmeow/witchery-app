@@ -29,7 +29,9 @@ const FollowersCard = ({ location }) => {
         />;
       })}
       {!location ? (
-        <span onClick={() => setModalOpened(true)}>Show more</span>
+        <button 
+        className="button-two"
+        onClick={() => setModalOpened(true)}>Show more</button>
       ) : (
         ""
       )}

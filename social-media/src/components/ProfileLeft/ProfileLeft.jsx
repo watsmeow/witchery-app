@@ -1,13 +1,10 @@
-import React from 'react'
-import FollowersCard from '../FollowersCard/FollowersCard'
-import InfoCard from '../InfoCard/InfoCard'
-import LogoSearch from '../LogoSearch/LogoSearch'
+import React from 'react';
+import InfoCard from '../InfoCard/InfoCard';
+
 const ProfileLeft = () => {
   return (
    <div className="ProfileSide">
-       <LogoSearch/>
        <InfoCard/>
-       <FollowersCard/>
    </div>
   )
 }

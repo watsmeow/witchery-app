@@ -77,13 +77,14 @@ const ProfileCard = ({location}) => {
           </Link>
         </span> 
           : 
-      <span>
+      <button
+      className="button-two">
         <Link 
         style={{textDecoration: "none", color: "inherit"}}
         to={`/profile/${user._id}`}>
           My Profile
         </Link>
-      </span>}
+      </button>}
     </div>
   );
 };

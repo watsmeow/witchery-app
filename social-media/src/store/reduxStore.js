@@ -13,8 +13,8 @@ import {
     try {
         const serializedStore = JSON.stringify(store);
         window.localStorage.setItem('store', serializedStore);
-    } catch(e) {
-        console.log(e);
+    } catch(error) {
+        console.log(error);
     }
   }
   
@@ -23,9 +23,10 @@ import {
     try {
         const serializedStore = window.localStorage.getItem('store');
         if(serializedStore === null) return undefined;
+        console.log("REDUX STORE LOAD FROM LOCAL STORAGE", serializedStore)
         return JSON.parse(serializedStore);
-    } catch(e) {
-        console.log(e);
+    } catch(error) {
+        console.log("REDUX STORE LOAD FROM LOCAL STORAGE ERROR", error);
         return undefined;
     }
   }
