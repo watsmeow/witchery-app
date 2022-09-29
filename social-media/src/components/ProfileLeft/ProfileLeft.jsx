@@ -4,7 +4,7 @@ import InfoCard from '../InfoCard/InfoCard';
 const ProfileLeft = () => {
   return (
    <div className="ProfileSide">
-       <InfoCard/>
+       <InfoCard location="profilePageLeft"/>
    </div>
   )
 }

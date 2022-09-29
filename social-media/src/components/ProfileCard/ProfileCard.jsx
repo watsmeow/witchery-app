@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import "./ProfileCard.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import * as UserApi from '../../api/userRequest';
+import { logOut } from "../../actions/AuthAction";
 
 const ProfileCard = ({location}) => {
+  const dispatch = useDispatch()
   const { user } = useSelector((state) => state.authReducer.authData);
   const posts = useSelector((state) => state.postReducer.posts);
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
 
+  const handleLogout = () => {
+    dispatch(logOut())
+  };
 
   return (
     <div className="ProfileCard">
@@ -33,16 +39,16 @@ const ProfileCard = ({location}) => {
       </div>
 
       <div className="ProfileName">
-        <span>{user.firstname}</span>
+        <h2>{user.firstname}</h2>
         <span>
           {user.worksAt 
         ? user.worksAt 
-        : "About you"}
+        : "Update your profile to display your details"}
         </span>
       </div>
 
       <div className="followStatus">
-        <hr />
+
         <div>
           <div className="follow">
             <span>{user.following.length}</span>
@@ -56,7 +62,7 @@ const ProfileCard = ({location}) => {
 
           {location === 'profilePage' && (
             <>
-              <div className="vl"></div>
+
               <div className="follow">
                 <span>
                   {posts.filter((post) => post.userId === user._id).length}
@@ -66,25 +72,29 @@ const ProfileCard = ({location}) => {
             </>
           )}
         </div>
-        <hr />
+
       </div>
-      {location === 'profilePage' ? 
-        <span>
+      <div className="nav-buttons">      
+        {location === 'profilePage' ? 
+
+          ""
+            : 
+        <button
+        className="button-two">
           <Link 
           style={{textDecoration: "none", color: "inherit"}}
-          to={`/home`}>
-            Home
+          to={`/profile/${user._id}`}>
+            My Profile
           </Link>
-        </span> 
-          : 
-      <button
-      className="button-two">
-        <Link 
-        style={{textDecoration: "none", color: "inherit"}}
-        to={`/profile/${user._id}`}>
-          My Profile
-        </Link>
-      </button>}
+        </button>}
+        <button 
+        className="button-two fc-button"
+        onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
+
     </div>
   );
 };

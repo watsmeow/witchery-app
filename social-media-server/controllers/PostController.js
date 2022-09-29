@@ -55,6 +55,7 @@ export const updatePost = async (req, res) => {
 
 //delete a post
 export const deletePost = async (req, res) => {
+    console.log(req.body)
     //gets post id from params of the url
     const id = req.params.id
     //get user id from the body of the request

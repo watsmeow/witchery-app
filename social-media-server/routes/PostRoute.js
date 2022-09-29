@@ -9,7 +9,7 @@ router.get('/:id', getPost)
 //update a post
 router.put('/:id', updatePost)
 //delete a post
-router.delete('/:id', deletePost)
+router.put('/:id', deletePost)
 //like a post
 router.put('/:id/like', likePost)
 //get timeline posts

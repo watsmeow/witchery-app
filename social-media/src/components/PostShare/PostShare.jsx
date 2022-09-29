@@ -1,23 +1,18 @@
 import React, { useState, useRef } from "react";
-import ProfileImage from "../../img/profileImg.jpg";
 import "./PostShare.css";
 import { UilScenery } from "@iconscout/react-unicons";
-import { UilPlayCircle } from "@iconscout/react-unicons";
-import { UilLocationPoint } from "@iconscout/react-unicons";
-import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
-import { useDispatch, useSelector } from 'react-redux';
-import { uploadImage, uploadPost } from '../../actions/UploadAction'
-
+import { useDispatch, useSelector } from "react-redux";
+import { uploadImage, uploadPost } from "../../actions/UploadAction";
 
 const PostShare = () => {
-  const loading = useSelector((state) => state.postReducer.uploading)
+  const loading = useSelector((state) => state.postReducer.uploading);
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const imageRef = useRef();
-  const {user} = useSelector((state) => state.authReducer.authData)
-  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
-  const desc = useRef()
+  const { user } = useSelector((state) => state.authReducer.authData);
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+  const desc = useRef();
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -28,55 +23,59 @@ const PostShare = () => {
 
   const reset = () => {
     setImage(null);
-    desc.current.value = ""
-  }
+    desc.current.value = "";
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = {
       userId: user._id,
       desc: desc.current.value,
-    }
+      username: user.username,
+    };
     if (image) {
       const data = new FormData();
       const filename = Date.now() + image.name;
-      data.append("name", filename)
-      data.append("file", image)
-      newPost.image = filename
+      data.append("name", filename);
+      data.append("file", image);
+      newPost.image = filename;
       try {
-        dispatch(uploadImage(data))
+        dispatch(uploadImage(data));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
     dispatch(uploadPost(newPost));
-    reset()
-  }
+    reset();
+  };
 
   return (
     <div className="PostShare">
-      <img src={
-          user.profilePicture
-          ? serverPublic + user.profilePicture
-          : serverPublic + "defaultProfile.png"
-      } alt="" />
       <div>
-        <input 
-        type="text" 
-        placeholder="What's happening" 
-        ref={desc}
-        required/>
+      <img
+      className="profileImage"
+        src={
+          user.profilePicture
+            ? serverPublic + user.profilePicture
+            : serverPublic + "defaultProfile.png"
+        }
+        alt=""
+      />
+        <input type="text" placeholder="What's happening" ref={desc} required />
         <div className="postOptions">
-          <div className="option" style={{ color: "var(--photo)" }}
-          onClick={()=>imageRef.current.click()}
+          <div
+            className="option"
+            style={{ color: "var(--photo)" }}
+            onClick={() => imageRef.current.click()}
           >
             <UilScenery />
             Photo
           </div>
-          <button 
-          className="button-two ps-button"
-          onClick={handleSubmit}
-          disabled={loading}>
-            {loading ? "Uploading" : "Post" }
+          <button
+            className="button-two ps-button"
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            {loading ? "Uploading" : "Post"}
           </button>
           <div style={{ display: "none" }}>
             <input
@@ -87,17 +86,16 @@ const PostShare = () => {
             />
           </div>
         </div>
-      {image && (
-
-        <div className="previewImage">
-          <UilTimes onClick={()=>setImage(null)}/>
-          <img src={URL.createObjectURL(image)} alt="" />
-        </div>
-
-      )}
-
-
       </div>
+     
+        {image && (
+          <div className="previewImage">
+            <UilTimes onClick={() => setImage(null)} />
+            <img src={URL.createObjectURL(image)} alt="" />
+          </div>
+        )}
+
+
     </div>
   );
 };

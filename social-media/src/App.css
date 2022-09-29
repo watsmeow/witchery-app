@@ -1,3 +1,4 @@
+
 :root {
   --yellow: #ffcdb2;
   --orange: #ffb4a2;
@@ -14,11 +15,22 @@
 --shedule: #e5989b;
 }
 
+body {
+  margin: none;
+}
 .App {
   overflow: hidden;
   color: var(--black);
   background-image: radial-gradient(circle, #ffcdb2, #fbc3ac, #f7b9a7, #f2afa2, #eda59f, #e19c9e, #d5939d, #c78b9b, #af8297, #977a8f, #807184, #6d6875);
   padding: 1rem;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p, span {
+  font-family: 'PT Sans', sans-serif;
 }
 
 .button {
@@ -61,6 +73,10 @@
 .button:disabled{
   background: silver;
   pointer-events: none;
+}
+
+a {
+  color: var(--black);
 }
 
 

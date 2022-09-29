@@ -29,7 +29,6 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
   };
 
   const handleSubmit = (e) => {
-    console.log('adfsafasdfsafd')
     e.preventDefault();
     let userData = formData;
     if (profileImage) {
@@ -56,7 +55,6 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
         console.log(error)
       }
     }
-    console.log("PROFILE MODAL PARAMS AND USERDATA", param.id, userData)
     dispatch(updateUser(param.id, userData));
     setModalOpened(false);
   };

@@ -7,8 +7,9 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import * as UserApi from '../../api/userRequest';
 import { logOut } from "../../actions/AuthAction";
+import { Link } from "react-router-dom";
 
-const InfoCard = () => {
+const InfoCard = ({location}) => {
   const dispatch = useDispatch()
   const params = useParams();
   const [modalOpened, setModalOpened] = useState(false);
@@ -75,12 +76,23 @@ const InfoCard = () => {
         </span>
       </div>
 
+      <div className="nav-buttons">
+      {location === 'profilePageLeft' ? 
+        <button
+        className="button-two">
+          <Link 
+          style={{textDecoration: "none", color: "inherit"}}
+          to={`/home`}>
+            Home
+          </Link>
+        </button> : ""} 
       <button 
       className="button-two fc-button"
       onClick={handleLogout}
       >
         Logout
       </button>
+      </div>
     </div>
   );
 };

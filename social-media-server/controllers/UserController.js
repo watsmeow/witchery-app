@@ -49,7 +49,6 @@ export const updateUser = async (req, res) => {
     //conditions that allow a user to update user info
     if (id === _id) {
         try {
-            console.log("UPDATE USER CONTROLLER")
             //checks if the password is valid
             if (password) {
                 //hashes the password in the body of the request for security
@@ -63,7 +62,6 @@ export const updateUser = async (req, res) => {
                 process.env.JWT_KEY,
                 {expiresIn: "1h"}
             );
-            console.log("UPDATE USER CONTROLLER TOKEN", token)
             res.status(200).json({user, token})
         } catch (error) {
             console.log(error)

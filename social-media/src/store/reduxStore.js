@@ -23,10 +23,9 @@ import {
     try {
         const serializedStore = window.localStorage.getItem('store');
         if(serializedStore === null) return undefined;
-        console.log("REDUX STORE LOAD FROM LOCAL STORAGE", serializedStore)
         return JSON.parse(serializedStore);
     } catch(error) {
-        console.log("REDUX STORE LOAD FROM LOCAL STORAGE ERROR", error);
+        console.log(error);
         return undefined;
     }
   }

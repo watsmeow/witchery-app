@@ -1,7 +1,7 @@
 import React from 'react'
 import './TrendCard.css'
 
-import {TrendData} from '../../data/TrendData.js'
+import {TrendData} from '../../../data/TrendData.js'
 const TrendCard = () => {
   return (
     <div className="TrendCard">

@@ -7,7 +7,7 @@ import './Profile.css'
 const Profile = () => {
   return (
     <div className="Profile">
-        <ProfileLeft/>
+        <ProfileLeft />
 
         <div className="Profile-center">
             <ProfileCard
