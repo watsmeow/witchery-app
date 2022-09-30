@@ -4,8 +4,13 @@
     flex-direction: column;
     position: relative;
     gap: 1rem;
-    padding: 1rem;
+    overflow-x: clip;
     background: var(--cardColor);
+    width: 100%;
+}
+
+.FollowersCard> div{
+    padding: 1rem;
 }
 
 .follower{
@@ -37,9 +42,8 @@
     font-weight: bold;
 }
 
-
-.fc-button{
-    height: 2rem;
-    padding-left: 20px;
-    padding-right: 20px;
+.button-holder {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
 }

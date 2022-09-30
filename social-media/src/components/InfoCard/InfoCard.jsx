@@ -37,7 +37,7 @@ const InfoCard = ({location}) => {
   return (
     <div className="InfoCard">
       <div className="infoHead">
-        <h4>Profile Info</h4>
+        <h3>Your Information</h3>
         {user._id === profileUserId 
         ? (
         <div>
@@ -56,30 +56,24 @@ const InfoCard = ({location}) => {
       </div>
      
       <div className="info">
-      <span>Status: </span>
-        <span>
-          <b>{profileUser.relationship}</b>
-        </span>
+      <h5>Status: </h5>
+        <p>{profileUser.relationship}</p>
       </div>
 
       <div className="info">
-      <span>Location: </span>
-        <span>
-          <b>{profileUser.livesin}</b>
-        </span>
+      <h5>Location: </h5>
+        <p>{profileUser.livesin}</p>
       </div>
 
       <div className="info">
-      <span>Profession: </span>
-        <span>
-          <b>{profileUser.worksAt}</b>
-        </span>
+      <h5>Profession: </h5>
+          <p>{profileUser.worksAt}</p>
       </div>
 
       <div className="nav-buttons">
       {location === 'profilePageLeft' ? 
         <button
-        className="button-two">
+        className="button">
           <Link 
           style={{textDecoration: "none", color: "inherit"}}
           to={`/home`}>
@@ -87,7 +81,7 @@ const InfoCard = ({location}) => {
           </Link>
         </button> : ""} 
       <button 
-      className="button-two fc-button"
+      className="button"
       onClick={handleLogout}
       >
         Logout

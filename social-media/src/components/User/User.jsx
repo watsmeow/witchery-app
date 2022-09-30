@@ -30,7 +30,7 @@ const User = ({ person }) => {
           className="followerImage"
         /> */}
         <div className="name">
-          <span>{person.username}</span>
+          <p>{person.username}</p>
         </div>
       </div>
       <button

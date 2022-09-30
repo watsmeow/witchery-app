@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import './Post.css'
-import Comment from '../../img/comment.png'
-import Heart from '../../img/like.png'
-import NotLike from '../../img/notlike.png'
+import './Post.css';
+import Comment from '../../img/comment.png';
+import Fire from '../../img/firepentagram.png';
+import Nofire from '../../img/blackpentagram.png';
+import Darkmoon from '../../img/darkmoon.png';
+import Lightmoon from '../../img/lightmoon.png';
 import { useSelector, useDispatch } from 'react-redux'
 import { likePost } from "../../api/postRequest";
 import { deletePost } from "../../actions/PostAction";
@@ -30,7 +32,7 @@ const Post = ({data}) => {
   }
   return (
     <div className="Post">
-      <span>{data.username}</span>
+        <h4>{data.username}</h4>
         <img src={
           data.image 
           ? process.env.REACT_APP_PUBLIC_FOLDER + data.image
@@ -38,31 +40,36 @@ const Post = ({data}) => {
         } 
         alt="" />
 
-
+        <div className="detail">
+          <p>{data.desc}</p>
+        </div>
+        <div
+        className="button-two-holder">
         <div className="postReact">
             <img src={
               liked
-              ? Heart
-              : NotLike} 
+              ? Lightmoon
+              : Darkmoon} 
               alt="" 
               style={{cursor: "pointer"}}
               onClick={handleLike}
               />
-            <img src={Comment} alt="" />
+            <span style={{color: "var(--gray)", fontSize: '12px'}}>{likes} likes</span>
+            {/* <img src={Comment} alt="" /> */}
+
         </div>
 
-        <span style={{color: "var(--gray)", fontSize: '12px'}}>{likes} likes</span>
-
-        <div className="detail">
-            <span> {data.desc}</span>
+        
+          <div className="button-holder2">
+          {user._id === data.userId? 
+          <button
+          className="button"
+          onClick={handleDelete}>Delete
+          </button>
+          : ""}
+          </div>
         </div>
 
-        {user._id === data.userId? 
-        <button
-        className="button-two"
-        onClick={handleDelete}>Delete Post
-        </button>
-        : ""}
     </div>
   )
 }

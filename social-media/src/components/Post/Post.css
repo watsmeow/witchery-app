@@ -17,6 +17,16 @@
 
 .postReact{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    align-content: flex-start;
     gap: 1.5rem;
+}
+
+.postReact>img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.button-holder2{
+    margin: 2rem 0 1rem 0;
 }

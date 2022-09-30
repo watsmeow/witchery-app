@@ -54,7 +54,6 @@ const ProfileCard = ({location}) => {
             <span>{user.following.length}</span>
             <span>Following</span>
           </div>
-          <div className="vl"></div>
           <div className="follow">
             <span>{user.followers.length}</span>
             <span>Followers</span>
@@ -74,26 +73,28 @@ const ProfileCard = ({location}) => {
         </div>
 
       </div>
-      <div className="nav-buttons">      
-        {location === 'profilePage' ? 
+      {location === 'profilePage' ?    
 
-          ""
+
+          ("")
             : 
+            <div className="nav-buttons">  
         <button
-        className="button-two">
+        className="button">
           <Link 
           style={{textDecoration: "none", color: "inherit"}}
           to={`/profile/${user._id}`}>
-            My Profile
+            Profile
+            
           </Link>
-        </button>}
+        </button>
         <button 
-        className="button-two fc-button"
+        className="button"
         onClick={handleLogout}
         >
           Logout
         </button>
-      </div>
+      </div>}
 
     </div>
   );

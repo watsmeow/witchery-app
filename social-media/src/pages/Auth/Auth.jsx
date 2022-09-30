@@ -48,15 +48,11 @@ const Auth = () => {
   return (
     <div className="Auth">
       {/* left side */}
-      <div className="a-left">
-        <img src={Logo} alt="" />
-        <div className="Webname">
-          <h1>Witchery</h1>
-          <h6>A society.</h6>
-        </div>
-      </div>
+
+      <h1>Witchery</h1>
     {/* right side */}
       <div className="a-right">
+
       <form className="infoForm authForm" onSubmit={handleSubmit}>
         <h3>{signedUp ? "Register":"Log In"}</h3>
 
@@ -132,13 +128,14 @@ const Auth = () => {
             >
               {signedUp
                 ? "Looks like you're already a user, log in here."
-                : "Please register."}
+                : "If you're not a member, register here."}
             </span>
-        <button className="button infoButton" type="submit" disabled={loading}>
+        <button className="button" type="submit" disabled={loading}>
           {loading ? "Loading..." : signedUp ? "Register" : "Log In"}
         </button>
       </form>
     </div>
+    <h6>Spell sharing for occult practitioners.</h6>
     </div>
   );
 };

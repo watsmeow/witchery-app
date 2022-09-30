@@ -21,27 +21,29 @@ const FollowersCard = ({ location }) => {
     
   return (
     <div className="FollowersCard">
-      <h3>People you may know</h3>
-      {persons.map((person, id) => {
-        if (person._id !== user._id) return <User 
-        person={person} 
-        key={id} 
-        />;
-      })}
-      {!location ? (
-        <button 
-        className="button-two"
-        onClick={() => setModalOpened(true)}>Show more</button>
-      ) : (
-        ""
-      )}
-
-      <FollowersModal
-        modalOpened={modalOpened}
-        setModalOpened={setModalOpened}
-      />
+      <div>
+        <h3>People you may know</h3>
+        {persons.map((person, id) => {
+          if (person._id !== user._id) return <User 
+          person={person} 
+          key={id} 
+          />;
+        })}
+        <div className="button-holder">
+        {!location ? (
+          <button 
+          className="button"
+          onClick={() => setModalOpened(true)}>More</button>
+        ) : (
+          ""
+        )}
+        </div>
+        <FollowersModal
+          modalOpened={modalOpened}
+          setModalOpened={setModalOpened}
+        />
+      </div>
     </div>
-    
   )
 }
 

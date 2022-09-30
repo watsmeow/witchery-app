@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RightSide.css";
-import FollowersCard from "../FollowersCard/FollowersCard";
+import FollowersCard from "../../FollowersCard/FollowersCard";
 
 const RightSide = () => {
   const [modalOpened, setModalOpened] = useState(false);

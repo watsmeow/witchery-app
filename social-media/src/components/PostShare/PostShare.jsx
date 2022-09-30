@@ -71,7 +71,7 @@ const PostShare = () => {
             Photo
           </div>
           <button
-            className="button-two ps-button"
+            className="button"
             onClick={handleSubmit}
             disabled={loading}
           >

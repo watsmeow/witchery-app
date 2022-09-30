@@ -156,7 +156,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
         </div>
 
         <button 
-        className="button infoButton">
+        className="button">
           Update
         </button>
       </form>
