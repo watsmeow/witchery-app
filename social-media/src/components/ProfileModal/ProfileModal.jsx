@@ -101,10 +101,10 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
           <input
             type="text"
             className="infoInput"
-            name="worksAt"
-            placeholder="Works at"
+            name="title"
+            placeholder="Your title"
             onChange={handleChange}
-            value={formData.worksAt}
+            value={formData.title}
           />
         </div>
 
@@ -112,30 +112,19 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
           <input
             type="text"
             className="infoInput"
-            name="livesin"
-            placeholder="Lives in"
+            name="practitionerOf"
+            placeholder="Type of magic typically practiced"
             onChange={handleChange}
-            value={formData.livesin}
+            value={formData.practitionerOf}
           />
 
           <input
             type="text"
             className="infoInput"
-            name="country"
-            placeholder="Country"
+            name="magicTradition"
+            placeholder="Magic traditions you are trained in"
             onChange={handleChange}
-            value={formData.country}
-          />
-        </div>
-
-        <div>
-          <input
-            type="text"
-            className="infoInput"
-            placeholder="RelationShip Status"
-            name="relationship"
-            onChange={handleChange}
-            value={formData.relationship}
+            value={formData.magicTradition}
           />
         </div>
 
@@ -157,7 +146,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
 
         <button 
         className="button">
-          Update
+          Store
         </button>
       </form>
     </Modal>

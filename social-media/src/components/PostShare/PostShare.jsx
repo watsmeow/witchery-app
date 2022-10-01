@@ -12,7 +12,11 @@ const PostShare = () => {
   const imageRef = useRef();
   const { user } = useSelector((state) => state.authReducer.authData);
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
-  const desc = useRef();
+  const spellname = useRef();
+  const purpose = useRef();
+  const howToMake = useRef();
+  const effects = useRef();
+  const questions = useRef();
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -23,13 +27,22 @@ const PostShare = () => {
 
   const reset = () => {
     setImage(null);
-    desc.current.value = "";
+    spellname.current.value = "";
+    purpose.current.value = "";
+    howToMake.current.value = "";
+    effects.current.value = "";
+    questions.current.value = "";
+    user.username = "";
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = {
       userId: user._id,
-      desc: desc.current.value,
+      spellname: spellname.current.value,
+      purpose: purpose.current.value,
+      howToMake: howToMake.current.value,
+      effects: effects.current.value,
+      questions: questions.current.value,
       username: user.username,
     };
     if (image) {
@@ -51,16 +64,25 @@ const PostShare = () => {
   return (
     <div className="PostShare">
       <div>
-      <img
-      className="profileImage"
-        src={
-          user.profilePicture
-            ? serverPublic + user.profilePicture
-            : serverPublic + "defaultProfile.png"
-        }
-        alt=""
-      />
-        <input type="text" placeholder="What's happening" ref={desc} required />
+        <div className="postShareHeader">
+          <img
+            className="profileImage"
+            src={
+              user.profilePicture
+                ? serverPublic + user.profilePicture
+                : serverPublic + "defaultProfile.png"
+            }
+            alt=""
+          />
+          <h3>Share a spell</h3>
+        </div>
+
+
+        <input type="text" placeholder="Spell name" ref={spellname} required />
+        <input type="text" placeholder="Purpose" ref={purpose}  />
+        <input type="text" placeholder="Ingredients and instructions" ref={howToMake} className="ingredients" required/>
+        <input type="text" placeholder="Effects" ref={effects} />
+        <input type="text" placeholder="Questions for others" ref={questions} />
         <div className="postOptions">
           <div
             className="option"

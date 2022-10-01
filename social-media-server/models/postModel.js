@@ -3,8 +3,13 @@ import mongoose from "mongoose";
 const postSchema = mongoose.Schema(
   {
     userId: { type: String, required: true },
-    desc: String,
+    spellname: String, 
+    purpose: String,
+    howToMake: String,
+    effects: String,
+    questions: String,
     likes: [],
+    comments: [],
     image: String,
   },
   {

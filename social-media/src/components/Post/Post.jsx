@@ -13,7 +13,7 @@ const Post = ({data}) => {
   const dispatch = useDispatch()
   const {user} = useSelector((state) => state.authReducer.authData)
   const [liked, setLiked] = useState(data.likes.includes(user._id));
-  const [likes, setLikes] = useState(data.likes.length)
+  const [likes, setLikes] = useState(data.likes.length);
 
   const handleLike = () => {
     setLiked((prev) => !prev);
@@ -29,20 +29,30 @@ const Post = ({data}) => {
         console.log(error)
       }
     } 
-  }
+  };
+
+  console.log(data)
   return (
     <div className="Post">
-        <h4>{data.username}</h4>
-        <img src={
-          data.image 
-          ? process.env.REACT_APP_PUBLIC_FOLDER + data.image
-          : ""
-        } 
-        alt="" />
+        <h2>{data.spellname}: A spell for {data.purpose} by {data.username}</h2>
 
         <div className="detail">
-          <p>{data.desc}</p>
+
+          <h5>Ingredients and instructions:</h5>
+          <p>{data.howToMake}</p>
+          <h5>Effects:</h5>
+          <p>{data.effects}</p>
+
         </div>
+
+        {
+          data.image 
+          ? <img src={process.env.REACT_APP_PUBLIC_FOLDER + data.image} alt="" />
+          : ""
+        } 
+
+        {data.questions && (
+          <p>{data.questions}</p>)}
         <div
         className="button-two-holder">
         <div className="postReact">

@@ -20,7 +20,7 @@ const User = ({ person }) => {
   return (
     <div className="follower">
       <div>
-        {/* <img
+        <img
           src={
             publicFolder + person.profilePicture
               ? publicFolder + person.profilePicture
@@ -28,7 +28,7 @@ const User = ({ person }) => {
           }
           alt="profile"
           className="followerImage"
-        /> */}
+        />
         <div className="name">
           <p>{person.username}</p>
         </div>

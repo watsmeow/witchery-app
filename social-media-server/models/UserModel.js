@@ -18,17 +18,15 @@ const UserSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        isAdmin : {
-            type: Boolean,
-            default: false,
-        },
+        // isAdmin : {
+        //     type: Boolean,
+        //     default: false,
+        // },
         profilePicture: String,
         coverPicture: String,
-        about: String,
-        livesin: String,
-        country: String,
-        worksAt: String,
-        relationship: String,
+        title: String,
+        practitionerOf: String,
+        magicTradition: String,
         followers: [] ,
         following: []
     },

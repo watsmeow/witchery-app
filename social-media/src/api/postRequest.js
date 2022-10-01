@@ -12,7 +12,11 @@ export const getTimelinePosts = async (id) => {
         let postWithUser = {}
         postWithUser["_id"] = post._id
         postWithUser['userId'] = post.userId
-        postWithUser['desc'] = post.desc
+        postWithUser['spellname'] = post.spellname
+        postWithUser['purpose'] = post.purpose
+        postWithUser['howToMake'] = post.howToMake
+        postWithUser['effects'] = post.effects
+        postWithUser['questions'] = post.questions
         postWithUser['likes'] = post.likes
         postWithUser['image'] = post.image
         postWithUser['username'] = users.data.filter((person) => {return person._id === post.userId})[0].username

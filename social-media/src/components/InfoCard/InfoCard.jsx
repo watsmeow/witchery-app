@@ -56,18 +56,18 @@ const InfoCard = ({location}) => {
       </div>
      
       <div className="info">
-      <h5>Status: </h5>
-        <p>{profileUser.relationship}</p>
+      <h5>Title: </h5>
+        <p>{profileUser.title}</p>
       </div>
 
       <div className="info">
-      <h5>Location: </h5>
-        <p>{profileUser.livesin}</p>
+      <h5>Currently practicing: </h5>
+        <p>{profileUser.practitionerOf}</p>
       </div>
 
       <div className="info">
-      <h5>Profession: </h5>
-          <p>{profileUser.worksAt}</p>
+      <h5>Trained in: </h5>
+          <p>{profileUser.magicTradition}</p>
       </div>
 
       <div className="nav-buttons">
