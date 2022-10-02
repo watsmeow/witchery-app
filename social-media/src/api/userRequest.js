@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //giving a base url for proxy so that every time a request is made it calls port 4242
-const API = axios.create({baseURL: "http://localhost:4242"});
+const API = axios.create({baseURL: process.env.API_URL });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
