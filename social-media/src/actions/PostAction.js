@@ -23,4 +23,14 @@ export const deletePost = (id, userId) => async(dispatch) => {
         dispatch({ type: "DELETING_FAIL" })
         console.log(error)
     }
-}
+};
+
+export const updatePost = (userId, formData) => async(dispatch) => {
+    dispatch({ type: "UPDATING_POST_START" })
+    try {
+        const {data} = await PostApi.updatePost(userId, formData)
+       dispatch({ type: "UPDATING_POST_SUCCESS", data: formData })
+    } catch (error) {
+        dispatch({ type: "UPDATING_POST_FAIL" })
+    }
+};

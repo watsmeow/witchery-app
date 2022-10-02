@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import './Post.css';
-import Comment from '../../img/comment.png';
-import Fire from '../../img/firepentagram.png';
-import Nofire from '../../img/blackpentagram.png';
+// import Comment from '../../img/comment.png';
 import Darkmoon from '../../img/darkmoon.png';
 import Lightmoon from '../../img/lightmoon.png';
 import { useSelector, useDispatch } from 'react-redux'
 import { likePost } from "../../api/postRequest";
 import { deletePost } from "../../actions/PostAction";
+import { UilPen } from "@iconscout/react-unicons";
+import PostModal from "../PostModal/PostModal";
+import { useParams } from "react-router-dom";
 
 const Post = ({data}) => {
   const dispatch = useDispatch()
   const {user} = useSelector((state) => state.authReducer.authData)
   const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length);
+  const params = useParams();
+  const [modalOpened, setModalOpened] = useState(false);
+  const profileUserId = params.id;
 
   const handleLike = () => {
     setLiked((prev) => !prev);
@@ -31,9 +35,27 @@ const Post = ({data}) => {
     } 
   };
 
-  console.log(data)
   return (
     <div className="Post">
+
+<div className="infoHead">
+        <h3>Your Information</h3>
+        {user._id === profileUserId 
+        ? (
+        <div>
+          <UilPen
+            width="2rem"
+            height="1.2rem"
+            onClick={() => setModalOpened(true)}
+          />
+          <PostModal
+            modalOpened={modalOpened}
+            setModalOpened={setModalOpened}
+            data = {data}
+          />
+        </div> )
+        : ("")}
+      </div>
         <h2>{data.spellname}: A spell for {data.purpose} by {data.username}</h2>
 
         <div className="detail">

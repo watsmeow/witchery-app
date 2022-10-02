@@ -35,12 +35,14 @@ export const updatePost = async (req, res) => {
     //gets post id from params of the url
     const id = req.params.id
     //get user id from the body of the request
-    const { userId } = req.body
+    console.log(req.body)
+    const { userId } = req.body.data
 
     try {
         //if post is found by its id, assigns post to 'post' variable
         const post = await PostModel.findById(id)
         //make sure that the user requesting the update owns the post
+        console.log(post, userId)
         if (post.userId === userId) {
             //update the post with what is sent in the request body
             await post.updateOne({ $set: req.body })

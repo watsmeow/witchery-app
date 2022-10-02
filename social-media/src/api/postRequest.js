@@ -30,3 +30,5 @@ export const likePost = (id, userId) => API.put(`post/${id}/like`, {userId: user
 
 export const deletePost = (id, userId) => API.put(`post/${id}`, {userId: userId})
 
+export const updatePost = (userId, data) => API.put(`post/${data._id}`, {data: data})
+

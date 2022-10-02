@@ -41,8 +41,8 @@ const ProfileCard = ({location}) => {
       <div className="ProfileName">
         <h2>{user.firstname}</h2>
         <span>
-          {user.worksAt 
-        ? user.worksAt 
+          {user.title
+        ? user.title + " and practitioner of " + user.practitionerOf + ". Trained in " + user.magicTradition +"."
         : "Update your profile to display your details"}
         </span>
       </div>

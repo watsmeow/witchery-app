@@ -21,11 +21,28 @@ const postReducer = (
       case "RETRIEVING_FAIL":
         return { ...state, loading: false, error: true };
 
-              // reducer for Posts component
+              //cases for updating post from postmodal
+              case "UPDATING_POST_START":
+                  return {...state, loading: true , error: false}
+              case "UPDATING_POST_SUCCESS":
+                const updatedPost = state.posts.map((post) => {
+                  if (post._id === action.data._id) {
+                    return action.data
+                  } else {
+                    return post
+                  }
+                })
+                console.log(updatedPost)
+              return {...state, posts: [...updatedPost], loading: false, error: false}
+          
+              case "UPDATING_POST_FAIL":
+                  return {...state, loading: true, error: true}
+
+        // reducer for deleting post
       case "DELETING_START":
         return { ...state, loading: true, error: false };
       case "DELETING_SUCCESS":
-        const updatedPosts = state.posts.filter((post) => {return post._id != action.data})
+        const updatedPosts = state.posts.filter((post) => {return post._id !== action.data})
 
         return { ...state, posts: [...updatedPosts], loading: false, error: false };
       case "DELETING_FAIL":

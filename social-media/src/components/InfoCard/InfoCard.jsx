@@ -36,6 +36,7 @@ const InfoCard = ({location}) => {
 
   return (
     <div className="InfoCard">
+      <div>
       <div className="infoHead">
         <h3>Your Information</h3>
         {user._id === profileUserId 
@@ -86,6 +87,7 @@ const InfoCard = ({location}) => {
       >
         Logout
       </button>
+      </div>
       </div>
     </div>
   );
