@@ -4,11 +4,9 @@
   --orange: #D0AC8A;
   --black: #0E161B;
   --gray: rgba(36, 45, 73, 0.89);
-  --profileShadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.5);
-  --hrColor: #cfcdcd;
-  --cardColor: rgba(255, 255, 255, 0.8);
+  --cardColor: rgba(255, 255, 255, 0.9);
   --buttonBg: #0E161B;
-  --inputColor: rgba(40, 52, 62, 0.07);
+  --inputColor: rgba(40, 52, 62, 0.3);
 }
 
 body {

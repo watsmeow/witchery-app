@@ -39,6 +39,10 @@
     width: 90%;
 }
 
+.PostShare>div>input::placeholder{
+    color: var(--gray);
+}
+
 .postOptions{
     display: flex;
     justify-content: space-between;
