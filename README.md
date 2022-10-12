@@ -7,7 +7,7 @@
 
 **Tech used:** HTML, CSS, JavaScript, Node.js, Express.js, React.js, React Redux, JWT auth
 
-This is a fullstack social media app using Node and Express on the back end and React on the front end. It uses React redux for storing state, integrating the front and back ends, and effectively handling user authorization and permissions.
+This is a fullstack social media app using JavaScript via Node and Express on the back end and React on the front end. It uses React redux for storing state, integrating the front and back ends, and effectively handling user authorization and permissions.
 
 ## Optimizations
 
